@@ -1,3 +1,8 @@
+/**
+ * SEBUAH EXTENSI YANG DIGUNAKAN UNTUK MENGGUNAKAN KODE HEXA PADA FLUTTER APP
+ * 
+ */
+
 import 'package:flutter/cupertino.dart';
 
 extension HexColor on Color {
