@@ -1,6 +1,11 @@
+/**
+ * screen untuk menampilkan halaman absensi 
+ * status : on progress
+ */
+
 import 'package:akademix/extensions/hex_color.dart';
 import 'package:akademix/utilities/constant.dart';
-import 'package:akademix/widgets/main_navigation.dart';
+import 'package:akademix/widgets/akademix_main_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -22,21 +27,6 @@ class _AbsenceScreenState extends State<AbsenceScreen> {
           painter: RectangleCircleUnion(),
         ),
       ),
-      // body: Stack(
-      //   children: [
-      //     Text('lore'),
-      //     Container(child: lengganankuIcon),
-      //     // Center(
-      //     //   child: Text('ipsum'),
-      //     // ),
-      //     // Container(
-      //     //   margin: EdgeInsets.only(bottom: 17),
-      //     //   width: double.infinity,
-      //     //   child: Align(
-      //     //       alignment: Alignment.bottomCenter, child: MainNavigation()),
-      //     // )
-      //   ],
-      // ),
     );
   }
 }
