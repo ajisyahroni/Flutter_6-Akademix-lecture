@@ -1,3 +1,11 @@
+/**
+ * ====================================
+ *  MAIN NAVIGATION is a widget that used to navigate between page
+ *  by : ajik
+ *  widget ini berkaitan dengan extensi warna
+ * ====================================
+ */
+
 import 'package:akademix/extensions/hex_color.dart';
 import 'package:flutter/material.dart';
 

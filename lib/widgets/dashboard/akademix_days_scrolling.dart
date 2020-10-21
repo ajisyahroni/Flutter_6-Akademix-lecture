@@ -1,3 +1,11 @@
+/**
+ * ====================================
+ *  DAY SCROLLING IS A WIDGET WHICH CONTAIN BUNCH OF A DAY BUTTON
+ *  widget ini berkaitan dengan model days
+ *  by : ajik
+ * ====================================
+ */
+
 import 'package:akademix/models/days.dart';
 import 'package:flutter/material.dart';
 
