@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: HexColor.fromHex('#00B4D8'),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: AbsenceScreen(),
     );
   }
 }

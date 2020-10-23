@@ -19,7 +19,19 @@ List<Days> listOfWeekday = [
 ];
 int nowadays = DateTime.now().weekday;
 
-class DaysScrolling extends StatelessWidget {
+class DaysScrolling extends StatefulWidget {
+  @override
+  _DaysScrollingState createState() => _DaysScrollingState();
+}
+
+class _DaysScrollingState extends State<DaysScrolling> {
+  void changenowadays(int buttonIndex) {
+    print(buttonIndex);
+    setState(() {
+      nowadays = buttonIndex;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -34,7 +46,9 @@ class DaysScrolling extends StatelessWidget {
                       listOfWeekday[index].text,
                       style: TextStyle(color: Colors.white),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      changenowadays(listOfWeekday[index].weekday);
+                    },
                     color: Theme.of(context).accentColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
@@ -51,7 +65,9 @@ class DaysScrolling extends StatelessWidget {
                       listOfWeekday[index].text,
                       style: TextStyle(color: Theme.of(context).accentColor),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      changenowadays(listOfWeekday[index].weekday);
+                    },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30.0),
