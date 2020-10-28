@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
              * MAIN NAVIGATION DISINI
              * =========================
              */
-            Align(alignment: Alignment.bottomCenter, child: MainNavigation()),
+            // Align(alignment: Alignment.bottomCenter, child: MainNavigation()),
           ],
         ),
       ),
