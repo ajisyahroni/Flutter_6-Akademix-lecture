@@ -25,7 +25,6 @@ class _AbsenceScreenState extends State<AbsenceScreen> {
 
     _scrollController = new ScrollController();
     _scrollController.addListener(() {
-      print(_bottomPosition);
       switch (_scrollController.position.userScrollDirection) {
         case ScrollDirection.reverse:
           setState(() {
@@ -49,10 +48,11 @@ class _AbsenceScreenState extends State<AbsenceScreen> {
         title: Text('title'),
       ),
       floatingActionButton: Stack(
+        alignment: Alignment.center,
         children: [
           AnimatedPositioned(
             bottom: _bottomPosition,
-            left: MediaQuery.of(context).size.width / 4.5,
+            // left: MediaQuery.of(context).size.width / 4,
             duration: Duration(milliseconds: 200),
             child: MainNavigation(),
           ),
