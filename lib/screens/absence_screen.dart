@@ -67,7 +67,7 @@ class _AbsenceScreenState extends State<AbsenceScreen> {
                       width: double.infinity,
                       height: 100,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text(
                             'IPA-0',
@@ -114,7 +114,9 @@ class _AbsenceScreenState extends State<AbsenceScreen> {
                       ),
                     ),
                     painter: SpecialCardBackground(
-                        color: Color(0xFF00B4D8), flex: 3),
+                        color: Color(0xFF00B4D8),
+                        flex: 3,
+                        specialOrnament: true),
                   ),
                 );
               },
