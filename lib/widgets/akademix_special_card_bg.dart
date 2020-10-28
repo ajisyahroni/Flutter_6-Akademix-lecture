@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class SpecialCardBackground extends CustomPainter {
   final int flex;
+  bool specialOrnament = false;
 
   // color
   Color color;
@@ -9,7 +10,8 @@ class SpecialCardBackground extends CustomPainter {
   List<Color> gradientcolor;
 
   // constructor
-  SpecialCardBackground({@required this.color, @required this.flex}) {
+  SpecialCardBackground(
+      {@required this.color, @required this.flex, this.specialOrnament}) {
     colorWithOpacity = color.withOpacity(0.2);
     gradientcolor = [
       color,
@@ -88,6 +90,19 @@ class SpecialCardBackground extends CustomPainter {
           quarterCircleBound.bottomLeft.dx, quarterCircleBound.bottomLeft.dy);
 
     canvas.drawPath(quarterCirclePath, quarterCirclePaint);
+
+    // right quarter circle
+    if (specialOrnament == true) {
+      final rightQuarterCirclePainter = Paint()
+        ..color = Color(0xffFA8E40)
+        ..style = PaintingStyle.fill;
+      final rightQuarterCirclePath = Path()
+        ..moveTo(width, 0)
+        ..lineTo(width - fixedWidth, 0)
+        ..quadraticBezierTo(
+            width - fixedWidth * 0.9, fixedHeight * 0.9, width, fixedHeight);
+      canvas.drawPath(rightQuarterCirclePath, rightQuarterCirclePainter);
+    }
   }
 
   @override
