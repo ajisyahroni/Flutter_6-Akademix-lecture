@@ -15,17 +15,13 @@ class AbsenceScreen extends StatefulWidget {
   _AbsenceScreenState createState() => _AbsenceScreenState();
 }
 
-class _AbsenceScreenState extends State<AbsenceScreen>
-    with SingleTickerProviderStateMixin {
+class _AbsenceScreenState extends State<AbsenceScreen> {
   ScrollController _scrollController;
-  AnimationController _hideFABAnimationController;
   double _bottomPosition = 10;
 
   @override
   void initState() {
     super.initState();
-    _hideFABAnimationController = AnimationController(
-        vsync: this, value: 1, duration: Duration(milliseconds: 200));
 
     _scrollController = new ScrollController();
     _scrollController.addListener(() {
@@ -35,13 +31,11 @@ class _AbsenceScreenState extends State<AbsenceScreen>
           setState(() {
             _bottomPosition = -100;
           });
-          _hideFABAnimationController.reverse();
           break;
         case ScrollDirection.forward:
           setState(() {
             _bottomPosition = 10;
           });
-          _hideFABAnimationController.forward();
           break;
         default:
       }
