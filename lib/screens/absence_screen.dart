@@ -19,6 +19,7 @@ class _AbsenceScreenState extends State<AbsenceScreen>
     with SingleTickerProviderStateMixin {
   ScrollController _scrollController;
   AnimationController _hideFABAnimationController;
+  double _bottomPosition = 10;
 
   @override
   void initState() {
@@ -28,11 +29,18 @@ class _AbsenceScreenState extends State<AbsenceScreen>
 
     _scrollController = new ScrollController();
     _scrollController.addListener(() {
+      print(_bottomPosition);
       switch (_scrollController.position.userScrollDirection) {
         case ScrollDirection.reverse:
+          setState(() {
+            _bottomPosition = -100;
+          });
           _hideFABAnimationController.reverse();
           break;
         case ScrollDirection.forward:
+          setState(() {
+            _bottomPosition = 10;
+          });
           _hideFABAnimationController.forward();
           break;
         default:
@@ -46,23 +54,24 @@ class _AbsenceScreenState extends State<AbsenceScreen>
       appBar: AppBar(
         title: Text('title'),
       ),
-      floatingActionButton: FadeTransition(
-        opacity: _hideFABAnimationController,
-        child: ScaleTransition(
-          scale: _hideFABAnimationController,
-          child: MainNavigation(),
-        ),
+      floatingActionButton: Stack(
+        children: [
+          AnimatedPositioned(
+            bottom: _bottomPosition,
+            left: MediaQuery.of(context).size.width / 4.5,
+            duration: Duration(milliseconds: 200),
+            child: MainNavigation(),
+          ),
+        ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Column(
         children: [
-          Container(
-            child: AkademixPresencePercentage(
-              totalPertemuan: 50,
-              masuk: 10,
-              izin: 1,
-              sakit: 7,
-            ),
+          AkademixPresencePercentage(
+            totalPertemuan: 50,
+            masuk: 10,
+            izin: 3,
+            sakit: 7,
           ),
           Expanded(
             child: ListView.builder(
@@ -129,40 +138,6 @@ class _AbsenceScreenState extends State<AbsenceScreen>
               itemCount: 10,
             ),
           )
-          // Card(
-          //   child: CustomPaint(
-          //     child: Container(
-          //       padding: EdgeInsets.symmetric(horizontal: 10.0),
-          //       width: double.infinity / 2,
-          //       height: 100,
-          //       child: Row(
-          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //         children: [
-          //           Column(
-          //             mainAxisAlignment: MainAxisAlignment.center,
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Text(
-          //                 'UTS',
-          //                 style: TextStyle(fontSize: 14, color: Colors.white),
-          //               ),
-          //               Text(
-          //                 '25/6/20',
-          //                 style: TextStyle(fontSize: 12, color: Colors.white),
-          //               ),
-          //             ],
-          //           ),
-          //           Text(
-          //             '80',
-          //             style: TextStyle(
-          //                 fontSize: 24, color: Color.fromRGBO(92, 92, 92, 1)),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //     painter: SpecialCardBackground(color: Color(0xFFFA8E40), flex: 2),
-          //   ),
-          // )
         ],
       ),
     );
